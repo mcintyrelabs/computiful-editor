@@ -1,8 +1,8 @@
 .navbar {
   font-family: "Montserrat", sans-serif !important;
   background-color: dodgerblue !important;
-  border-bottom: 1px dashed ghostwhite !important;
-  color: ghostwhite !important;
+  border-bottom: 1px dashed white !important;
+  color: white !important;
 }
 
 .border-row {
@@ -42,11 +42,11 @@ div.blocklyTreeRowContentContainer span.blocklyTreeIcon {
 
 .dropdown-item:hover {
   background-color: dodgerblue !important;
-  color: ghostwhite !important;
+  color: white !important;
 }
 
 .nav-link {
-  color: ghostwhite !important;
+  color: white !important;
 }
 
 .nav-link:hover {
@@ -63,7 +63,7 @@ div.blocklyTreeRowContentContainer span.blocklyTreeIcon {
 }
 
 .blocklyIconSymbol {
-  fill: ghostwhite;
+  fill: white;
 }
 
 .btn-ctrl {
@@ -73,12 +73,12 @@ div.blocklyTreeRowContentContainer span.blocklyTreeIcon {
 
 .btn-ctrl:hover {
   background-color: dodgerblue !important;
-  color: ghostwhite !important;
+  color: white !important;
 }
 
 .btn-active {
   background-color: dodgerblue !important;
-  color: ghostwhite !important;
+  color: white !important;
 }
 
 .blocklyTreeRowContentContainer {
