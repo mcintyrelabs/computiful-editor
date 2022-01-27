@@ -9,7 +9,7 @@ Blockly.JavaScript["setup"] = function (block) {
     "SETUP_STATEMENTS"
   );
   // TODO: Assemble JavaScript into code variable.
-  const code = `p.setup = function() {\n${statements_setup_statements};\n}\n`;
+  const code = `p.setup = function() {\np.angleMode(p.DEGREES);\n${statements_setup_statements};\n}\n`;
   return code;
 };
 
@@ -322,6 +322,30 @@ Blockly.JavaScript["scale"] = function (block) {
   );
   // TODO: Assemble JavaScript into code variable.
   const code = `p.scale(${value_scale});\n`;
+  return code;
+};
+
+Blockly.JavaScript["push"] = function () {
+  // TODO: Assemble JavaScript into code variable.
+  const code = "p.push();\n";
+  // TODO: Change ORDER_NONE to the correct strength.
+  return code;
+};
+
+Blockly.JavaScript["pop"] = function () {
+  // TODO: Assemble JavaScript into code variable.
+  const code = "p.pop();\n";
+  // TODO: Change ORDER_NONE to the correct strength.
+  return code;
+};
+
+Blockly.JavaScript["group"] = function (block) {
+  const statements_group_statements = Blockly.JavaScript.statementToCode(
+    block,
+    "GROUP_STATEMENTS"
+  );
+  // TODO: Assemble JavaScript into code variable.
+  const code = `p.push();\n${statements_group_statements};\np.pop();\n`;
   return code;
 };
 

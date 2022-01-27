@@ -320,7 +320,7 @@ Blockly.Blocks["translate"] = {
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour("#90ee90");
+    this.setColour("#88e088");
     this.setTooltip(
       "Specifies an amount to displace objects within the display window."
     );
@@ -337,11 +337,26 @@ Blockly.Blocks["rotate"] = {
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour("#90ee90");
+    this.setColour("#88e088");
     this.setTooltip(
       "Rotates a shape by the amount specified by the angle parameter."
     );
     this.setHelpUrl("https://p5js.org/reference/#/p5/rotate");
+  },
+};
+
+Blockly.Blocks["group"] = {
+  init: function () {
+    this.appendStatementInput("GROUP_STATEMENTS")
+      .setCheck(null)
+      .appendField("group");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour("#88e088");
+    this.setTooltip(
+      "Applies transformations to a group of blocks."
+    );
+    this.setHelpUrl("");
   },
 };
 
@@ -350,15 +365,41 @@ Blockly.Blocks["scale"] = {
     this.appendDummyInput().appendField("scale");
     this.appendValueInput("SCALE")
       .setCheck("Number")
-      .appendField(new Blockly.FieldLabelSerializable("s"), "SCALE");
+      .appendField(new Blockly.FieldLabelSerializable("factor"), "SCALE");
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour("#90ee90");
+    this.setColour("#88e088");
     this.setTooltip(
       "Increases or decreases the size of a shape by expanding or contracting vertices."
     );
     this.setHelpUrl("https://p5js.org/reference/#/p5/scale");
+  },
+};
+
+Blockly.Blocks["push"] = {
+  init: function () {
+    this.appendDummyInput().appendField("push");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour("#88e088");
+    this.setTooltip(
+      "The push() function saves the current drawing style settings and transformations, while pop() restores these settings."
+    );
+    this.setHelpUrl("https://p5js.org/reference/#/p5/push");
+  },
+};
+
+Blockly.Blocks["pop"] = {
+  init: function () {
+    this.appendDummyInput().appendField("pop");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour("#88e088");
+    this.setTooltip(
+      "The pop() function saves the current drawing style settings and transformations, while pop() restores these settings."
+    );
+    this.setHelpUrl("https://p5js.org/reference/#/p5/pop");
   },
 };
 
@@ -508,7 +549,9 @@ Blockly.Blocks["textfont"] = {
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour("#058863");
-    this.setTooltip("Sets the current font that will be drawn with the text() function.");
+    this.setTooltip(
+      "Sets the current font that will be drawn with the text() function."
+    );
     this.setHelpUrl("https://p5js.org/reference/#/p5/textFont");
   },
 };
