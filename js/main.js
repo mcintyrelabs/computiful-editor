@@ -65,6 +65,9 @@ function initializeFile() {
   $("#btn-save").click(function () {
     saveSketch();
   });
+  $("#btn-js").click(function () {
+    saveScript();
+  });
 }
 
 function initializeExample() {
@@ -161,6 +164,25 @@ function saveSketch() {
   const a = document.createElement("a");
   a.href = URL.createObjectURL(data, { type: "text/plain" });
   a.setAttribute("download", `${filename}.blocks`);
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+}
+
+function saveScript() {
+  const filename = document.getElementById("sketch-name").value;
+  const workspace = Blockly.getMainWorkspace();
+  let js = Blockly.JavaScript.workspaceToCode();
+  js = js.replace(/p\./g, "");
+  js = js.replace(/setup = function/, "function setup");
+  js = js.replace(/draw = function/, "function draw");
+  js = js.replace(/cnv\.parent\(\'\#p5Container\'\)\;/, "");
+  js = js.replace(/let cnv = /, "");
+  js = js.replace(/  \n/g, "");
+  const data = new Blob([js]);
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(data, { type: "text/plain" });
+  a.setAttribute("download", `${filename}.js`);
   document.body.appendChild(a);
   a.click();
   document.body.removeChild(a);

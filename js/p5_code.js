@@ -9,7 +9,7 @@ Blockly.JavaScript["setup"] = function (block) {
     "SETUP_STATEMENTS"
   );
   // TODO: Assemble JavaScript into code variable.
-  const code = `p.setup = function() {\np.angleMode(p.DEGREES);\n${statements_setup_statements};\n}\n`;
+  const code = `p.setup = function() {\n  p.angleMode(p.DEGREES);\n${statements_setup_statements}}\n`;
   return code;
 };
 
@@ -19,7 +19,7 @@ Blockly.JavaScript["draw"] = function (block) {
     "DRAW_STATEMENTS"
   );
   // TODO: Assemble JavaScript into code variable.
-  const code = `p.draw = function() {\n${statements_draw_statements};\n}\n`;
+  const code = `p.draw = function() {\n${statements_draw_statements}}\n`;
   return code;
 };
 
@@ -35,10 +35,7 @@ Blockly.JavaScript["createcanvas"] = function (block) {
     Blockly.JavaScript.ORDER_ATOMIC
   );
   // TODO: Assemble JavaScript into code variable.
-  const code = `
-  let cnv = p.createCanvas(${value_width}, ${value_height});\n
-  cnv.parent('#p5Container');\n
-  `;
+  const code = `let cnv = p.createCanvas(${value_width}, ${value_height});\ncnv.parent('#p5Container');\n`;
   return code;
 };
 
@@ -466,4 +463,35 @@ Blockly.JavaScript["textfont"] = function (block) {
   // TODO: Assemble JavaScript into code variable.
   const code = `p.textFont(${value_font});\n`;
   return code;
+};
+
+/**
+ * ========================================
+ *                 Math
+ * ========================================
+ */
+Blockly.JavaScript["dist"] = function (block) {
+  const value_x1 = Blockly.JavaScript.valueToCode(
+    block,
+    "X1",
+    Blockly.JavaScript.ORDER_ATOMIC
+  );
+  const value_y1 = Blockly.JavaScript.valueToCode(
+    block,
+    "Y1",
+    Blockly.JavaScript.ORDER_ATOMIC
+  );
+  const value_x2 = Blockly.JavaScript.valueToCode(
+    block,
+    "X2",
+    Blockly.JavaScript.ORDER_ATOMIC
+  );
+  const value_y2 = Blockly.JavaScript.valueToCode(
+    block,
+    "Y2",
+    Blockly.JavaScript.ORDER_ATOMIC
+  );
+  // TODO: Assemble JavaScript into code variable.
+  const code = `p.dist(${value_x1}, ${value_y1}, ${value_x2}, ${value_y2});\n`;
+  return [code, Blockly.JavaScript.ORDER_NONE];
 };

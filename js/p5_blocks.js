@@ -555,3 +555,35 @@ Blockly.Blocks["textfont"] = {
     this.setHelpUrl("https://p5js.org/reference/#/p5/textFont");
   },
 };
+
+/**
+ * ========================================
+ *                 Math
+ * ========================================
+ */
+ Blockly.Blocks["dist"] = {
+  init: function () {
+    this.appendDummyInput().appendField("dist");
+    this.setOutput(true, null);
+    this.appendValueInput("X1")
+      .setCheck("Number")
+      .appendField(new Blockly.FieldLabelSerializable("x1"), "X1");
+    this.appendValueInput("Y1")
+      .setCheck("Number")
+      .appendField(new Blockly.FieldLabelSerializable("y1"), "Y1");
+    this.appendValueInput("X2")
+      .setCheck("Number")
+      .appendField(new Blockly.FieldLabelSerializable("x2"), "X2");
+    this.appendValueInput("Y2")
+      .setCheck("Number")
+      .appendField(new Blockly.FieldLabelSerializable("y2"), "Y2");
+    this.setInputsInline(true);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour("#e6da39");
+    this.setTooltip(
+      "Calculates the distance between two points."
+    );
+    this.setHelpUrl("https://p5js.org/reference/#/p5/dist");
+  },
+};
