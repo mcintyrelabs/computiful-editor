@@ -99,6 +99,13 @@ function initializeExample() {
     loadExample(name);
     $("#sketch-name").val(name);
   });
+  $("#example-ccfest").click(function () {
+    const workspace = Blockly.getMainWorkspace();
+    workspace.clear();
+    const name = "CC Fest - Turtle Earth";
+    loadExample(name);
+    $("#sketch-name").val(name);
+  });
 }
 
 function initializeControl() {
