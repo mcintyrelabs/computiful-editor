@@ -16,8 +16,9 @@ Blockly.inject("blocklyDiv", {
 function initializeWorkspace() {
   const workspace = Blockly.getMainWorkspace();
   workspace.clear();
-  loadExample("Earth");
-  nameSketch();
+  const name = "Hello, world";
+  loadExample(name);
+  $("#sketch-name").val(name);
 
   const blocklyArea = document.getElementById("blocklyArea");
   const blocklyDiv = document.getElementById("blocklyDiv");
@@ -55,7 +56,7 @@ function initializeFile() {
   $("#btn-new").click(function () {
     const workspace = Blockly.getMainWorkspace();
     workspace.clear();
-    loadExample("Earth");
+    loadExample("Hello, world");
     nameSketch();
   });
   $("#btn-load").click(function () {
@@ -67,10 +68,10 @@ function initializeFile() {
 }
 
 function initializeExample() {
-  $("#example-earth").click(function () {
+  $("#example-hello-world").click(function () {
     const workspace = Blockly.getMainWorkspace();
     workspace.clear();
-    const name = "Earth";
+    const name = "Hello, world";
     loadExample(name);
     $("#sketch-name").val(name);
   });

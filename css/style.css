@@ -10,11 +10,7 @@
 }
 
 .blocklyToolboxDiv {
-  border-right: 1px dashed rgb(166, 166, 166) !important;
-}
-
-.injectionDiv {
-  border: 1px dashed rgb(166, 166, 166) !important;
+  border-right: 0.5px solid rgb(198, 198, 198) !important;
 }
 
 .blocklyToolboxContents {
