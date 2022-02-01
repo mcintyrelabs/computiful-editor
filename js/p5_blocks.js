@@ -353,9 +353,7 @@ Blockly.Blocks["group"] = {
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour("#88e088");
-    this.setTooltip(
-      "Applies transformations to a group of blocks."
-    );
+    this.setTooltip("Applies transformations to a group of blocks.");
     this.setHelpUrl("");
   },
 };
@@ -561,7 +559,7 @@ Blockly.Blocks["textfont"] = {
  *                 Math
  * ========================================
  */
- Blockly.Blocks["dist"] = {
+Blockly.Blocks["dist"] = {
   init: function () {
     this.appendDummyInput().appendField("dist");
     this.setOutput(true, null);
@@ -581,9 +579,7 @@ Blockly.Blocks["textfont"] = {
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour("#e6da39");
-    this.setTooltip(
-      "Calculates the distance between two points."
-    );
+    this.setTooltip("Calculates the distance between two points.");
     this.setHelpUrl("https://p5js.org/reference/#/p5/dist");
   },
 };

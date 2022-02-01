@@ -144,6 +144,9 @@ function playSketch() {
   $("#btn-stop").removeClass("btn-active");
   $("#btn-play").addClass("btn-active");
   try {
+    if (window._sketch) {
+      window._sketch.remove();
+    }
     const workspace = Blockly.getMainWorkspace();
     const code = Blockly.JavaScript.workspaceToCode(workspace);
     const p5Div = document.getElementById("p5Container");
@@ -151,7 +154,7 @@ function playSketch() {
     const f = new Function("p", code);
     window._sketch = new p5(f, "p5Container");
   } catch (error) {
-    console.log(error);
+    p5._friendlyError("Please tidy up your blocks :)");
   }
 }
 
@@ -177,8 +180,6 @@ function saveSketch() {
 }
 
 function saveScript() {
-  const filename = document.getElementById("sketch-name").value;
-  const workspace = Blockly.getMainWorkspace();
   let js = Blockly.JavaScript.workspaceToCode();
   js = js.replace(/p\./g, "");
   js = js.replace(/setup = function/, "function setup");
@@ -189,7 +190,7 @@ function saveScript() {
   const data = new Blob([js]);
   const a = document.createElement("a");
   a.href = URL.createObjectURL(data, { type: "text/plain" });
-  a.setAttribute("download", `${filename}.js`);
+  a.setAttribute("download", `sketch.js`);
   document.body.appendChild(a);
   a.click();
   document.body.removeChild(a);
@@ -223,4 +224,41 @@ function loadExample(filename) {
     Blockly.serialization.workspaces.load(sketch, workspace);
     playSketch();
   });
+}
+
+p5._mfriendlyError = p5._friendlyError;
+
+p5._friendlyError = function (message, func, color) {
+  let msg = message;
+  if (msg.indexOf("An error") >= 0) {
+    msg = msg.replace(/was called[^\r\n]*/, "was called.\n");
+    msg = msg.replace(/ with message [^\r\n]*\."/, "");
+    msg = msg.replace(/library/, "library\n");
+    msg = msg.replace(/issue/, "issue\n");
+  } else if (msg.indexOf("If not intentional") >= 0) {
+    msg = msg.replace(/ \(on line[^\r\n]*/, "");
+    msg = msg.replace(/If not intentional[^\r\n]*/, "");
+    msg = msg.replace(/\n/, "");
+    msg = msg.replace(/\(\)/, "");
+    msg = msg.replace(/for the/, "for the\n");
+  }
+
+  window.fesMessage = msg;
+  window._sketch.remove();
+  window._sketch = new p5(oops, "p5Container");
+  p5._mfriendlyError(message, func, color);
+};
+
+function oops(p) {
+  p.setup = function () {
+    p.createCanvas(400, 400);
+    p.background("white");
+    p.fill("#ed225d");
+    p.textAlign(p.CENTER, p.CENTER);
+    p.textFont("Inconsolata");
+    p.textSize(14);
+    p.text(window.fesMessage, 200, 200);
+    p.textSize(64);
+    p.text("*", 200, 100);
+  };
 }

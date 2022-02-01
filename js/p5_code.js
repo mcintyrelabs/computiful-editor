@@ -1,3 +1,10 @@
+function checkArgument(arg) {
+  if (arg === "") {
+    return undefined;
+  }
+  return arg;
+}
+
 /**
  * ========================================
  *              Structure
@@ -24,16 +31,18 @@ Blockly.JavaScript["draw"] = function (block) {
 };
 
 Blockly.JavaScript["createcanvas"] = function (block) {
-  const value_width = Blockly.JavaScript.valueToCode(
+  let value_width = Blockly.JavaScript.valueToCode(
     block,
     "WIDTH",
     Blockly.JavaScript.ORDER_ATOMIC
   );
-  const value_height = Blockly.JavaScript.valueToCode(
+  value_width = checkArgument(value_width);
+  let value_height = Blockly.JavaScript.valueToCode(
     block,
     "HEIGHT",
     Blockly.JavaScript.ORDER_ATOMIC
   );
+  value_height = checkArgument(value_height);
   // TODO: Assemble JavaScript into code variable.
   const code = `let cnv = p.createCanvas(${value_width}, ${value_height});\ncnv.parent('#p5Container');\n`;
   return code;
@@ -59,44 +68,48 @@ Blockly.JavaScript["height"] = function () {
  * ========================================
  */
 Blockly.JavaScript["background"] = function (block) {
-  const value_color = Blockly.JavaScript.valueToCode(
+  let value_color = Blockly.JavaScript.valueToCode(
     block,
     "COLOR",
     Blockly.JavaScript.ORDER_ATOMIC
   );
+  value_color = checkArgument(value_color);
   // TODO: Assemble JavaScript into code variable.
   const code = `p.background(${value_color});\n`;
   return code;
 };
 
 Blockly.JavaScript["fill"] = function (block) {
-  const value_color = Blockly.JavaScript.valueToCode(
+  let value_color = Blockly.JavaScript.valueToCode(
     block,
     "COLOR",
     Blockly.JavaScript.ORDER_ATOMIC
   );
+  value_color = checkArgument(value_color);
   // TODO: Assemble JavaScript into code variable.
   const code = `p.fill(${value_color});\n`;
   return code;
 };
 
 Blockly.JavaScript["stroke"] = function (block) {
-  const value_color = Blockly.JavaScript.valueToCode(
+  let value_color = Blockly.JavaScript.valueToCode(
     block,
     "COLOR",
     Blockly.JavaScript.ORDER_ATOMIC
   );
+  value_color = checkArgument(value_color);
   // TODO: Assemble JavaScript into code variable.
   const code = `p.stroke(${value_color});\n`;
   return code;
 };
 
 Blockly.JavaScript["strokeweight"] = function (block) {
-  const value_weight = Blockly.JavaScript.valueToCode(
+  let value_weight = Blockly.JavaScript.valueToCode(
     block,
     "WEIGHT",
     Blockly.JavaScript.ORDER_ATOMIC
   );
+  value_weight = checkArgument(value_weight);
   // TODO: Assemble JavaScript into code variable.
   const code = `p.strokeWeight(${value_weight});\n`;
   return code;
@@ -108,172 +121,198 @@ Blockly.JavaScript["strokeweight"] = function (block) {
  * ========================================
  */
 Blockly.JavaScript["circle"] = function (block) {
-  const value_x = Blockly.JavaScript.valueToCode(
+  let value_x = Blockly.JavaScript.valueToCode(
     block,
     "X",
     Blockly.JavaScript.ORDER_ATOMIC
   );
-  const value_y = Blockly.JavaScript.valueToCode(
+  value_x = checkArgument(value_x);
+  let value_y = Blockly.JavaScript.valueToCode(
     block,
     "Y",
     Blockly.JavaScript.ORDER_ATOMIC
   );
-  const value_diameter = Blockly.JavaScript.valueToCode(
+  value_y = checkArgument(value_y);
+  let value_diameter = Blockly.JavaScript.valueToCode(
     block,
     "DIAMETER",
     Blockly.JavaScript.ORDER_ATOMIC
   );
+  value_diameter = checkArgument(value_diameter);
   // TODO: Assemble JavaScript into code variable.
   const code = `p.circle(${value_x}, ${value_y}, ${value_diameter});\n`;
   return code;
 };
 
 Blockly.JavaScript["square"] = function (block) {
-  const value_x = Blockly.JavaScript.valueToCode(
+  let value_x = Blockly.JavaScript.valueToCode(
     block,
     "X",
     Blockly.JavaScript.ORDER_ATOMIC
   );
-  const value_y = Blockly.JavaScript.valueToCode(
+  value_x = checkArgument(value_x);
+  let value_y = Blockly.JavaScript.valueToCode(
     block,
     "Y",
     Blockly.JavaScript.ORDER_ATOMIC
   );
-  const value_side = Blockly.JavaScript.valueToCode(
+  value_y = checkArgument(value_y);
+  let value_side = Blockly.JavaScript.valueToCode(
     block,
     "SIDE",
     Blockly.JavaScript.ORDER_ATOMIC
   );
+  value_side = checkArgument(value_side);
   // TODO: Assemble JavaScript into code variable.
   const code = `p.square(${value_x}, ${value_y}, ${value_side});\n`;
   return code;
 };
 
 Blockly.JavaScript["triangle"] = function (block) {
-  const value_x1 = Blockly.JavaScript.valueToCode(
+  let value_x1 = Blockly.JavaScript.valueToCode(
     block,
     "X1",
     Blockly.JavaScript.ORDER_ATOMIC
   );
-  const value_y1 = Blockly.JavaScript.valueToCode(
+  value_x1 = checkArgument(value_x1);
+  let value_y1 = Blockly.JavaScript.valueToCode(
     block,
     "Y1",
     Blockly.JavaScript.ORDER_ATOMIC
   );
-  const value_x2 = Blockly.JavaScript.valueToCode(
+  value_y1 = checkArgument(value_y1);
+  let value_x2 = Blockly.JavaScript.valueToCode(
     block,
     "X2",
     Blockly.JavaScript.ORDER_ATOMIC
   );
-  const value_y2 = Blockly.JavaScript.valueToCode(
+  value_x2 = checkArgument(value_x2);
+  let value_y2 = Blockly.JavaScript.valueToCode(
     block,
     "Y2",
     Blockly.JavaScript.ORDER_ATOMIC
   );
-  const value_x3 = Blockly.JavaScript.valueToCode(
+  value_y2 = checkArgument(value_y2);
+  let value_x3 = Blockly.JavaScript.valueToCode(
     block,
     "X3",
     Blockly.JavaScript.ORDER_ATOMIC
   );
-  const value_y3 = Blockly.JavaScript.valueToCode(
+  value_x3 = checkArgument(value_x3);
+  let value_y3 = Blockly.JavaScript.valueToCode(
     block,
     "Y3",
     Blockly.JavaScript.ORDER_ATOMIC
   );
+  value_y3 = checkArgument(value_y3);
   // TODO: Assemble JavaScript into code variable.
   const code = `p.triangle(${value_x1}, ${value_y1}, ${value_x2}, ${value_y2}, ${value_x3}, ${value_y3});\n`;
   return code;
 };
 
 Blockly.JavaScript["ellipse"] = function (block) {
-  const value_x = Blockly.JavaScript.valueToCode(
+  let value_x = Blockly.JavaScript.valueToCode(
     block,
     "X",
     Blockly.JavaScript.ORDER_ATOMIC
   );
-  const value_y = Blockly.JavaScript.valueToCode(
+  value_x = checkArgument(value_x);
+  let value_y = Blockly.JavaScript.valueToCode(
     block,
     "Y",
     Blockly.JavaScript.ORDER_ATOMIC
   );
-  const value_width = Blockly.JavaScript.valueToCode(
+  value_y = checkArgument(value_y);
+  let value_width = Blockly.JavaScript.valueToCode(
     block,
     "WIDTH",
     Blockly.JavaScript.ORDER_ATOMIC
   );
-  const value_height = Blockly.JavaScript.valueToCode(
+  value_width = checkArgument(value_width);
+  let value_height = Blockly.JavaScript.valueToCode(
     block,
     "HEIGHT",
     Blockly.JavaScript.ORDER_ATOMIC
   );
+  value_height = checkArgument(value_height);
   // TODO: Assemble JavaScript into code variable.
   const code = `p.ellipse(${value_x}, ${value_y}, ${value_width}, ${value_height});\n`;
   return code;
 };
 
 Blockly.JavaScript["rect"] = function (block) {
-  const value_x = Blockly.JavaScript.valueToCode(
+  let value_x = Blockly.JavaScript.valueToCode(
     block,
     "X",
     Blockly.JavaScript.ORDER_ATOMIC
   );
-  const value_y = Blockly.JavaScript.valueToCode(
+  value_x = checkArgument(value_x);
+  let value_y = Blockly.JavaScript.valueToCode(
     block,
     "Y",
     Blockly.JavaScript.ORDER_ATOMIC
   );
-  const value_width = Blockly.JavaScript.valueToCode(
+  value_y = checkArgument(value_y);
+  let value_width = Blockly.JavaScript.valueToCode(
     block,
     "WIDTH",
     Blockly.JavaScript.ORDER_ATOMIC
   );
-  const value_height = Blockly.JavaScript.valueToCode(
+  value_width = checkArgument(value_width);
+  let value_height = Blockly.JavaScript.valueToCode(
     block,
     "HEIGHT",
     Blockly.JavaScript.ORDER_ATOMIC
   );
+  value_height = checkArgument(value_height);
   // TODO: Assemble JavaScript into code variable.
   const code = `p.rect(${value_x}, ${value_y}, ${value_width}, ${value_height});\n`;
   return code;
 };
 
 Blockly.JavaScript["point"] = function (block) {
-  const value_x = Blockly.JavaScript.valueToCode(
+  let value_x = Blockly.JavaScript.valueToCode(
     block,
     "X",
     Blockly.JavaScript.ORDER_ATOMIC
   );
-  const value_y = Blockly.JavaScript.valueToCode(
+  value_x = checkArgument(value_x);
+  let value_y = Blockly.JavaScript.valueToCode(
     block,
     "Y",
     Blockly.JavaScript.ORDER_ATOMIC
   );
+  value_y = checkArgument(value_y);
   // TODO: Assemble JavaScript into code variable.
   const code = `p.point(${value_x}, ${value_y});\n`;
   return code;
 };
 
 Blockly.JavaScript["line"] = function (block) {
-  const value_x1 = Blockly.JavaScript.valueToCode(
+  let value_x1 = Blockly.JavaScript.valueToCode(
     block,
     "X1",
     Blockly.JavaScript.ORDER_ATOMIC
   );
-  const value_y1 = Blockly.JavaScript.valueToCode(
+  value_x1 = checkArgument(value_x1);
+  let value_y1 = Blockly.JavaScript.valueToCode(
     block,
     "Y1",
     Blockly.JavaScript.ORDER_ATOMIC
   );
-  const value_x2 = Blockly.JavaScript.valueToCode(
+  value_y1 = checkArgument(value_y1);
+  let value_x2 = Blockly.JavaScript.valueToCode(
     block,
     "X2",
     Blockly.JavaScript.ORDER_ATOMIC
   );
-  const value_y2 = Blockly.JavaScript.valueToCode(
+  value_x2 = checkArgument(value_x2);
+  let value_y2 = Blockly.JavaScript.valueToCode(
     block,
     "Y2",
     Blockly.JavaScript.ORDER_ATOMIC
   );
+  value_y2 = checkArgument(value_y2);
   // TODO: Assemble JavaScript into code variable.
   const code = `p.line(${value_x1}, ${value_y1}, ${value_x2}, ${value_y2});\n`;
   return code;
@@ -285,38 +324,42 @@ Blockly.JavaScript["line"] = function (block) {
  * ========================================
  */
 Blockly.JavaScript["translate"] = function (block) {
-  const value_x = Blockly.JavaScript.valueToCode(
+  let value_x = Blockly.JavaScript.valueToCode(
     block,
     "X",
     Blockly.JavaScript.ORDER_ATOMIC
   );
-  const value_y = Blockly.JavaScript.valueToCode(
+  value_x = checkArgument(value_x);
+  let value_y = Blockly.JavaScript.valueToCode(
     block,
     "Y",
     Blockly.JavaScript.ORDER_ATOMIC
   );
+  value_y = checkArgument(value_y);
   // TODO: Assemble JavaScript into code variable.
   const code = `p.translate(${value_x}, ${value_y});\n`;
   return code;
 };
 
 Blockly.JavaScript["rotate"] = function (block) {
-  const value_angle = Blockly.JavaScript.valueToCode(
+  let value_angle = Blockly.JavaScript.valueToCode(
     block,
     "ANGLE",
     Blockly.JavaScript.ORDER_ATOMIC
   );
+  value_angle = checkArgument(value_angle);
   // TODO: Assemble JavaScript into code variable.
   const code = `p.rotate(${value_angle});\n`;
   return code;
 };
 
 Blockly.JavaScript["scale"] = function (block) {
-  const value_scale = Blockly.JavaScript.valueToCode(
+  let value_scale = Blockly.JavaScript.valueToCode(
     block,
     "SCALE",
     Blockly.JavaScript.ORDER_ATOMIC
   );
+  value_scale = checkArgument(value_scale);
   // TODO: Assemble JavaScript into code variable.
   const code = `p.scale(${value_scale});\n`;
   return code;
@@ -423,43 +466,48 @@ Blockly.JavaScript["keycode"] = function () {
  * ========================================
  */
 Blockly.JavaScript["p5text"] = function (block) {
-  const value_text = Blockly.JavaScript.valueToCode(
+  let value_text = Blockly.JavaScript.valueToCode(
     block,
     "TEXT",
     Blockly.JavaScript.ORDER_ATOMIC
   );
-  const value_x = Blockly.JavaScript.valueToCode(
+  value_text = checkArgument(value_text);
+  let value_x = Blockly.JavaScript.valueToCode(
     block,
     "X",
     Blockly.JavaScript.ORDER_ATOMIC
   );
-  const value_y = Blockly.JavaScript.valueToCode(
+  value_x = checkArgument(value_x);
+  let value_y = Blockly.JavaScript.valueToCode(
     block,
     "Y",
     Blockly.JavaScript.ORDER_ATOMIC
   );
+  value_y = checkArgument(value_y);
   // TODO: Assemble JavaScript into code variable.
   const code = `p.text(${value_text}, ${value_x}, ${value_y});\n`;
   return code;
 };
 
 Blockly.JavaScript["textsize"] = function (block) {
-  const value_size = Blockly.JavaScript.valueToCode(
+  let value_size = Blockly.JavaScript.valueToCode(
     block,
     "SIZE",
     Blockly.JavaScript.ORDER_ATOMIC
   );
+  value_size = checkArgument(value_size);
   // TODO: Assemble JavaScript into code variable.
   const code = `p.textSize(${value_size});\n`;
   return code;
 };
 
 Blockly.JavaScript["textfont"] = function (block) {
-  const value_font = Blockly.JavaScript.valueToCode(
+  let value_font = Blockly.JavaScript.valueToCode(
     block,
     "FONT",
     Blockly.JavaScript.ORDER_ATOMIC
   );
+  value_font = checkArgument(value_font);
   // TODO: Assemble JavaScript into code variable.
   const code = `p.textFont(${value_font});\n`;
   return code;
@@ -471,26 +519,30 @@ Blockly.JavaScript["textfont"] = function (block) {
  * ========================================
  */
 Blockly.JavaScript["dist"] = function (block) {
-  const value_x1 = Blockly.JavaScript.valueToCode(
+  let value_x1 = Blockly.JavaScript.valueToCode(
     block,
     "X1",
     Blockly.JavaScript.ORDER_ATOMIC
   );
-  const value_y1 = Blockly.JavaScript.valueToCode(
+  value_x1 = checkArgument(value_x1);
+  let value_y1 = Blockly.JavaScript.valueToCode(
     block,
     "Y1",
     Blockly.JavaScript.ORDER_ATOMIC
   );
-  const value_x2 = Blockly.JavaScript.valueToCode(
+  value_y1 = checkArgument(value_y1);
+  let value_x2 = Blockly.JavaScript.valueToCode(
     block,
     "X2",
     Blockly.JavaScript.ORDER_ATOMIC
   );
-  const value_y2 = Blockly.JavaScript.valueToCode(
+  value_x2 = checkArgument(value_x2);
+  let value_y2 = Blockly.JavaScript.valueToCode(
     block,
     "Y2",
     Blockly.JavaScript.ORDER_ATOMIC
   );
+  value_y2 = checkArgument(value_y2);
   // TODO: Assemble JavaScript into code variable.
   const code = `p.dist(${value_x1}, ${value_y1}, ${value_x2}, ${value_y2});\n`;
   return [code, Blockly.JavaScript.ORDER_NONE];
