@@ -1,5 +1,5 @@
 .navbar {
-  font-family: "Montserrat", sans-serif !important;
+  font-family: "Poppins", sans-serif !important;
   background-color: dodgerblue !important;
   border-bottom: 1px dashed white !important;
   color: white !important;
@@ -50,7 +50,7 @@ div.blocklyTreeRowContentContainer span.blocklyTreeIcon {
 }
 
 .blocklyTreeLabel {
-  font-family: "Montserrat", sans-serif !important;
+  font-family: "Poppins", sans-serif !important;
   color: white;
 }
 
@@ -84,6 +84,6 @@ div.blocklyTreeRowContentContainer span.blocklyTreeIcon {
 }
 
 #sketch-name {
-  font-family: "Montserrat";
+  font-family: "Poppins";
   font-size: 0.9em;
 }
